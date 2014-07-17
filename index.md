@@ -27,7 +27,7 @@ Once we have got the unemployment rate for each region, age group and education 
 **Load data and see some rows** 
 
 ```r
-load("../data/data.rda")
+load("../data.rda")
 dim(data)
 ```
 
