@@ -22,9 +22,25 @@ Previously we have calculated unemployment rate by region, age groups and educat
 With this app we can explore how to change unemployment rate across the time and compare regions, including important labour variables like age and education.
 
 ---
+
+## Unemployment rate
+Some definitions:
+
+* Population of 16 years old or older is subdivided in active + inactive population
+* Active population :  employed + unemployed 
+* Inactive population: Students, retired, unable to work and other situations
+
+* __Unemployment rate__ : It is the ratio between the number of unemployed and active population.
+
+We calculate __unemployment rate__ for each combination of region, age group, education level and period since 2008 and put together in a data.frame
+
+---
+
+
 ## Data
-Once we have got the unemployment rate for each region, age group and education level since 2008, we put together in a data.frame. 
-**Load data and see some rows** 
+Data are in master branch in github repository
+https://github.com/joscani/project_shiny/tree/master
+
 
 ```r
 load("../data.rda")
@@ -50,22 +66,6 @@ data[1:3,]
 ## 3     1T 2008
 ```
 
-
-
----
-
-## Unemployment rate
-Some definitions:
-
-* Population of 16 years old or older is subdivided in active + inactive population
-* Active population :  employed + unemployed 
-* Inactive population: Students, retired, unable to work and other situations
-
-* __Unemployment rate__ : It is the ratio between the number of unemployed and active population.
-
-
-
----
 
 ## The App
 Explain the visualization  and include a little figure to show.
