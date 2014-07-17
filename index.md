@@ -19,21 +19,28 @@ Unemployment  rate is the principal economic problem in Spain. Spanish regions h
 
 Previously we have calculated unemployment rate by region, age groups and education level for each period since 2008. You can see how to do for one particular wave in this [rpubs document](http://rpubs.com/joscani/unemplrate)
 
-With this app we can explore how to change unemployment rate across the time and compare regions, including important labour variables like age and education.
+With this app we can explore how to change unemployment rate across the time
 
 ---
 
 ## Unemployment rate
-
+<style>
+strong {
+  font-weight: bold;
+}
+em {
+  font-style: italic;
+}
+</style>
 Some definitions:
 
 * Population of 16 years old or older is subdivided in active + inactive population
 * Active population :  employed + unemployed 
 * Inactive population: Students, retired, unable to work and other situations
 
-* <strong>Unemployment rate</strong> : It is the ratio between the number of unemployed and active population.
+* __Unemployment rate__ : It is the ratio between the number of unemployed and active population.
 
-We calculate <strong>unemployment rate</strong> for each combination of region, age group, education level and period since 2008 and put together in a data.frame
+We calculate unemployment rate for each combination of region, age group, education level and period since 2008 and put together in a data.frame
 
 ---
 
@@ -71,7 +78,14 @@ data[1:3,]
 ---
 
 ## The App
-
+<style>
+strong {
+  font-weight: bold;
+}
+em {
+  font-style: italic;
+}
+</style>
 App is hosting in https://canadasreche.shinyapps.io/project_shiny/
 
 * ggplot line figure : unemployment rate evolution since 2008. 
@@ -80,7 +94,7 @@ App is hosting in https://canadasreche.shinyapps.io/project_shiny/
     
 * Table with unemployment rate for a choosen region, education level and period interval.
 
-Example : Unemployment rate for age group 35-54 years old and <em>primary</em> education level has changed from 12.93% in 2008 to 42.38% for 2014 in Spain. Awful!! 
+Example: Unemployment rate for age group 35-54 years old and *primary* education level has changed from 12.93% in 2008 to 42.38% for 2014 in Spain. Awful!! 
 
 
 
