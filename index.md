@@ -24,20 +24,22 @@ With this app we can explore how to change unemployment rate across the time and
 ---
 
 ## Unemployment rate
+
 Some definitions:
 
 * Population of 16 years old or older is subdivided in active + inactive population
 * Active population :  employed + unemployed 
 * Inactive population: Students, retired, unable to work and other situations
 
-* __Unemployment rate__ : It is the ratio between the number of unemployed and active population.
+* <strong>Unemployment rate</strong> : It is the ratio between the number of unemployed and active population.
 
-We calculate __unemployment rate__ for each combination of region, age group, education level and period since 2008 and put together in a data.frame
+We calculate <strong>unemployment rate</strong> for each combination of region, age group, education level and period since 2008 and put together in a data.frame
 
 ---
 
 
 ## Data
+
 Data are in master branch in github repository
 https://github.com/joscani/project_shiny/tree/master
 
@@ -66,15 +68,21 @@ data[1:3,]
 ## 3     1T 2008
 ```
 
-
-## The App
-Explain the visualization  and include a little figure to show.
-
-2. Visualization
-
 ---
 
-## Code example in server.R
+## The App
+
+App is hosting in https://canadasreche.shinyapps.io/project_shiny/
+
+* ggplot line figure : unemployment rate evolution since 2008. 
+    * 2 facets: education level and age groups
+    * You can choose 2 differents regions and compare evolution
+    
+* Table with unemployment rate for a choosen region, education level and period interval.
+
+Example : Unemployment rate for age group 35-54 years old and <em>primary</em> education level has changed from 12.93% in 2008 to 42.38% for 2014 in Spain. Awful!! 
+
+
 
 
 
