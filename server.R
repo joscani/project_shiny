@@ -31,7 +31,7 @@ shinyServer(function(input, output) {
         })
 
         
-        output$plot2 <- renderPlot({
+        output$plot1 <- renderPlot({
 
             p <- ggplot(auxi(), aes(x=ciclo,y=paro,col=ccaa)) +
             	geom_line(size=rel(1.2)) + facet_grid(gedad ~ nforma3) +
@@ -52,8 +52,7 @@ shinyServer(function(input, output) {
         output$tabla <- renderTable({
              initciclo <- data$ciclo[data$ciclonombre==input$initperiod][1]
              endciclo <- data$ciclo[data$ciclonombre==input$endperiod][1]
-#              filtro <- data$nforma3== forma.sel() & data$gedad==edad.sel() & data$ccaa==input$ccaa3 &
-#                  data$ciclo >= initciclo & data$ciclo <= endciclo
+
              filtro <- data$nforma3== forma.sel() & data$ccaa==input$ccaa3 &
                  data$ciclo >= initciclo & data$ciclo <= endciclo
              tmp <- data[filtro, ]

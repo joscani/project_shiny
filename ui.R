@@ -16,9 +16,17 @@ shinyUI(fluidPage(
                         ),
                         mainPanel(
                                 h2("Comparing Unemployment rate between Spanish Regions "),  
-#                                   plotOutput('plot1'),
-#                                 htmlOutput("plot1"),
-                                plotOutput('plot2')
+
+                                plotOutput('plot1'),
+                                h3("Explanation"),
+                                p("This app has been designed to explore unemployment rate in Spanish regions using",em("EPA"),"public microdata"),
+                                p("EPA microdata has about 171000 persons each period and we calculate unemployment rate for 25 periods. Survey is made each 3 months"),
+
+                                p("You can choose 2 differents regions and figure reacts to show unemployment rate evolution since 1T 2008 to 1T 2014. Figure include both selected regions and total. The facets indicate education level in columns and age group in rows "),
+                                p("As you can see, unemployment rates are increasing since 2008 but this increasing is less for high age groups and high education levels "),
+                                p("You can see how to calculate unemployment rate step by step in my",a("rpubs document", href=("http://rpubs.com/joscani/unemplrate")) ),
+                                p(" "),
+                                p("Below you can select a region, education level and period to see unemployment rate evolution by age groups")
                         )
 
         )
@@ -35,8 +43,6 @@ sidebarLayout(position = "right",
               mainPanel(
 
                   h2("Unemployment rate (%) "),
-                  tableOutput('tabla'),
-                  h3("Explanation")  
-                  
+                  tableOutput('tabla') 
               ))))
               
