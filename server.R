@@ -11,16 +11,12 @@ load("data.rda")
 
 shinyServer(function(input, output) {
         
-        #creates reactive formula for the input variable
+        #creates reactive formula for the input variables
         ccaa.sel <- reactive({
             c("Total",input$ccaa1, input$ccaa2)
         })
         
-        
-        edad.sel <- reactive({
-            input$gedad
-        })
-        
+      
         forma.sel <- reactive({
             input$nforma
         })
@@ -30,7 +26,7 @@ shinyServer(function(input, output) {
             auxi <- data[sel,]            
         })
 
-        
+        # renderPlot
         output$plot1 <- renderPlot({
 
             p <- ggplot(auxi(), aes(x=ciclo,y=paro,col=ccaa)) +
@@ -49,46 +45,35 @@ shinyServer(function(input, output) {
             p
             
         })
-        output$tabla <- renderTable({
-             initciclo <- data$ciclo[data$ciclonombre==input$initperiod][1]
-             endciclo <- data$ciclo[data$ciclonombre==input$endperiod][1]
-
-             filtro <- data$nforma3== forma.sel() & data$ccaa==input$ccaa3 &
-                 data$ciclo >= initciclo & data$ciclo <= endciclo
-             tmp <- data[filtro, ]
-             tmp$ciclonombre <- droplevels(tmp$ciclonombre)
-             
-            tabla <- with(tmp, xtabs(100*paro ~  ciclonombre + gedad))
-#             colnames(tabla) <- c("Period","Unemployment rate %")
-            tabla
-                         
+        
+        # Render table and download
+        
+        # 1 create a reactive object to allow renderTable and download table 
+        
+        datasetInput <- reactive({
+            initciclo <- data$ciclo[data$ciclonombre==input$initperiod][1]
+            endciclo <- data$ciclo[data$ciclonombre==input$endperiod][1]
             
+            filtro <- data$nforma3== forma.sel() & data$ccaa==input$ccaa3 &
+                data$ciclo >= initciclo & data$ciclo <= endciclo
+            tmp <- data[filtro, ]
+            tmp$ciclonombre <- droplevels(tmp$ciclonombre)
+            
+            tabla <- with(tmp, xtabs(100*paro ~  ciclonombre + gedad))
+            tabla 
         })
+        
+        # 2 render table using reactive object
+        output$tabla <- renderTable({datasetInput()})
+        
+        # 3 Use downloadHandler to be made available download table.
+        # note the use of reactive object datasetInput in content part of function
+        
+        output$downloadData <- downloadHandler(filename = function(){
+            paste('resultado','.csv',sep='')},
+                                               content = function(file) {
+                                                   write.csv(datasetInput(), file) 
+                                                   })
 
-# previous plots
 
-#         output$plot1 <- renderPlot({
-#             sel <- data$ccaa %in% ccaa.sel()
-#             edad <- epa2008_2014$gedad== edad.sel()
-#             forma <- epa2008_2014$nforma3 == forma.sel()
-#             auxi <- data[sel & edad & forma, ] 
-#             p <- ggplot(auxi, aes(x=ciclo,y=paro,col=ccaa)) +
-#                 geom_line()
-#          
-#                 print(p)
-#         })
-
-#       output$plot1 <- renderGvis({
-#           sel <- data$ccaa %in% ccaa.sel()
-#           edad <- epa2008_2014$gedad== edad.sel()
-#           forma <- epa2008_2014$nforma3 == forma.sel()
-#           auxi <- data[sel & edad & forma, ]
-#           auxi <- auxi[,c("ciclo","ccaa","paro")]
-#           auxi.melt <- melt(auxi, id.vars=c("ciclo","ccaa"), meausure.vars="paro" )
-#           auxi.cast <- dcast(auxi.melt, variable + ciclo ~ ccaa, mean)
-#           gvisLineChart(auxi.cast,xvar="ciclo",yvar=ccaa.sel(),
-#               options=list(width=400, height=300) )
-#     
-#     
-# })
 })

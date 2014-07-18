@@ -37,7 +37,8 @@ sidebarLayout(position = "right",
                             selectInput('nforma',label="Education level: ", nnforma),
 #                             selectInput('gedad',label='Age: ',ngedad),
                             selectInput('initperiod', label = 'Choose initial period', choices = nperiod, selected = nperiod[21] ),
-                            selectInput('endperiod', label = 'Choose initial period', choices = nperiod, selected = nperiod[25] )
+                            selectInput('endperiod', label = 'Choose initial period', choices = nperiod, selected = nperiod[25] ),
+                            downloadButton('downloadData', 'Download')
 
               ),
               mainPanel(
