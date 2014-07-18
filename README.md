@@ -1,4 +1,16 @@
 project_shiny
 =============
 
-little shiny example for developing data products course
+little shiny example for developing data products course.
+
+App is hosting in https://canadasreche.shinyapps.io/project_shiny/
+
+You can also use `runGitHub("project_shiny", "joscani")`
+
+Some libraries are necessary.
+
+* shiny
+* ggplot2
+* scales
+* reshape2
+
