@@ -26,7 +26,7 @@ shinyUI(fluidPage(
                                 p("As you can see, unemployment rates are increasing since 2008 but this increasing is less for high age groups and high education levels "),
                                 p("You can see how to calculate unemployment rate step by step in my",a("rpubs document", href=("http://rpubs.com/joscani/unemplrate")) ),
                                 p(" "),
-                                p("Below you can select a region, education level and period to see unemployment rate evolution by age groups")
+                                p("Below you can select a region, education level and period to see unemployment rate evolution by age groups. You also can download the data in a csv file")
                         )
 
         )
