@@ -31,12 +31,12 @@ shinyServer(function(input, output) {
 
             p <- ggplot(auxi(), aes(x=ciclo,y=paro,col=ccaa)) +
             	geom_line(size=rel(1.2)) + facet_grid(gedad ~ nforma3) +
-            	scale_x_continuous(breaks=seq(142,166,4),
+            	scale_x_continuous(breaks=seq(142,167,4),
             							 labels= 2008:2014)+
             	scale_y_continuous(labels=percent)+
                 
             	labs(x = "Years", y = "Unemployment rate in %",colour="Regions") +
-            	ggtitle("Unemployment rate evolution by age and education level\n2008-2014")
+            	ggtitle("Unemployment rate evolution by age and education level\n2008-2014") +
             	theme(axis.text.x = element_text(angle=90, hjust=1, vjust=.5),
             			strip.text = element_text(face = "bold"),
             			legend.title = element_text(size = rel(1.2)),

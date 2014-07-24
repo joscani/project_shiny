@@ -22,7 +22,7 @@ shinyUI(fluidPage(
                                 p("This app has been designed to explore unemployment rate in Spanish regions using",em("EPA"),"public microdata"),
                                 p("EPA microdata has about 171000 persons each period and we calculate unemployment rate for 25 periods. Survey is made each 3 months"),
 
-                                p("You can choose 2 differents regions and figure reacts to show unemployment rate evolution since 1T 2008 to 1T 2014. Figure include both selected regions and total. The facets indicate education level in columns and age group in rows "),
+                                p("You can choose 2 differents regions and figure reacts to show unemployment rate evolution since 1T 2008 to 2T 2014. Figure include both selected regions and total. The facets indicate education level in columns and age group in rows "),
                                 p("As you can see, unemployment rates are increasing since 2008 but this increasing is less for high age groups and high education levels "),
                                 p("You can see how to calculate unemployment rate step by step in my",a("rpubs document", href=("http://rpubs.com/joscani/unemplrate")) ),
                                 p(" "),
@@ -37,7 +37,7 @@ sidebarLayout(position = "right",
                             selectInput('nforma',label="Education level: ", nnforma),
 #                             selectInput('gedad',label='Age: ',ngedad),
                             selectInput('initperiod', label = 'Choose initial period', choices = nperiod, selected = nperiod[21] ),
-                            selectInput('endperiod', label = 'Choose initial period', choices = nperiod, selected = nperiod[25] ),
+                            selectInput('endperiod', label = 'Choose initial period', choices = nperiod, selected = nperiod[26] ),
                             downloadButton('downloadData', 'Download')
 
               ),
