@@ -3,6 +3,8 @@ project_shiny
 
 little shiny example for developing data products course.
 
+Presentation is in http://joscani.github.io/project_shiny/
+
 App is hosting in https://canadasreche.shinyapps.io/project_shiny/ 
 Sometimes shinyapps.io is too slow, try runGitHub to check app
 
